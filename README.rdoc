@@ -1,2 +1,5 @@
 Create user on console:
 User.create(email: "useddr@example.com",                  password: "foddobar", password_confirmation: "foddobar")
+
+Create user with curl:
+curl -H "Content-Type: application/json" -d '{"user":{"email":"sjors@purpledunes.com","password":"12345678","password_confirmation":"12345678"}}' -X POST http://localhost:3000/users
