@@ -7,9 +7,19 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    warden.authenticate!(:scope => resource_name)
+    @user = current_user
+
+    respond_to do |format|
+      format.json {
+        render json: {
+          message:    'Logged in',
+          auth_token: @user.authentication_token
+        }
+      }
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy
