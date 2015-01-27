@@ -8,9 +8,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.create(user_params)
+    if @user.save
+      message = "Successfully created new account for email #{sign_up_params[:email]}."
+    else
+      message = "Failed to create new account for email #{sign_up_params[:email]}."
+    end
+
+    respond_to do |format|
+      format.json {
+        render json: {
+          message: message
+        }
+      }
+    end
+
+  end
+
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
 
   # GET /resource/edit
   # def edit
