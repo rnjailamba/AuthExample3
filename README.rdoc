@@ -6,3 +6,6 @@ curl -H "Content-Type: application/json" -d '{"user":{"email":"sjors@purpledunes
 
 Sign in with curl:
 curl -H "Content-Type: application/json" -d '{"user":{"email":"sjoddddrs@purpledunes.com","password":"12345678","password_confirmation":"12345678"}}' -X POST http://localhost:3000/users/sign_in
+
+Sign Out with curl:
+curl -i -H "Accept: application/json" -H "Content-type: application/json" -H "X-User-Email: sjdors@purpledunes.com" -H "X-User-Token: ZVvXRkRZGYMtVV1z6F6c" -X DELETE http://localhost:3000/users/sign_out
