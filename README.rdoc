@@ -11,12 +11,21 @@ rails g devise users
 rails g devise :controllers users
 
 Now wrap up the above two commands on the routes.rb file
+
 Add simple_token_auth to gemfile
+
 Follow steps given there and make the token a field for the user
+
 Few imp things:
+
 	responds_to:json
+
 	skip_before_filter:verify signed out user
-Now change(override) the registrations controller and the sessions controlller and following curl commands will work.
+
+Now change(override) the registrations controller and the 
+
+sessions controlller and following curl commands will work.
+
 
 Create user on console:
 User.create(email: "useddr@example.com",                  password: "foddobar", password_confirmation: "foddobar")
