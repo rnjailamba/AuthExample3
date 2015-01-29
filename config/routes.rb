@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { sessions: "users/sessions",registrations: "users/registrations",confirmations: "users/confirmations",passwords: "users/passwords",unlocks: "users/unlocks" }
   get  'static_pages/home'
+  get 'tasks' => 'tasks#index', :as => 'tasks'
 
   root 'static_pages#home'
 
